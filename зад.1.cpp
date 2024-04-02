@@ -3,9 +3,9 @@
 #include <Windows.h>
 using namespace std;
 
-// Функция проверки на простоту
+// ╘єэъЎш  яЁютхЁъш эр яЁюёЄюЄє
 int findPrime(int originalNumber) {
-    //проверка простоты
+    //яЁютхЁър яЁюёЄюЄ√
     for (int i = 2; i <= sqrt(originalNumber); i++) {
         if (originalNumber % i == 0) {
             return 0;
@@ -14,15 +14,16 @@ int findPrime(int originalNumber) {
     return 1;
 }
 
-//Функция для поиска ближайшего простого числа
+//╘єэъЎш  фы  яюшёър сышцрщ°хую яЁюёЄюую ўшёыр
 int nearestPrimeNumber(int originalNumber) {
-    int leftward =originalNumber;
+    int leftward = originalNumber;
     int right = originalNumber + 1;
-    //Проверка справа, слева или само число простое
+    //╧ЁютхЁър ёяЁртр, ёыхтр шыш ёрью ўшёыю яЁюёЄюх
     while (true) {
         if (findPrime(leftward)) {
             return leftward;
-        }else if (findPrime(right)) {
+        }
+        else if (findPrime(right)) {
             return right;
         }
         leftward--;
@@ -31,28 +32,30 @@ int nearestPrimeNumber(int originalNumber) {
 }
 
 int main() {
-SetConsoleCP(1251);
-SetConsoleOutputCP(1251);
-// Ввод числа
-cout << "Введите число больше или равное 0: ";
-int number = 0;
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    // ┬тюф ўшёыр
+    cout << "┬тхфшЄх ўшёыю сюы№°х шыш Ёртэюх 0: ";
+    int number = 0;
     cin >> number;
-    //Проверка правильности пользовательского ввода
-    while(cin.fail() || number < 0){
-        cout << "Не верно введено значение, введите заново: ";
-        //обнуленние
+    //╧ЁютхЁър яЁртшы№эюёЄш яюы№чютрЄхы№ёъюую ттюфр
+    while (cin.fail() || number < 0) {
+        system("cls");
+        cout << "═х тхЁэю ттхфхэю чэрўхэшх, ттхфшЄх чрэютю: ";
+        //юсэєыхээшх
         cin.clear();
-        //игнорирует символ
+        //шуэюЁшЁєхЄ ёшьтюы
         cin.ignore();
         cin >> number;
     }
     int primeNumber;
-    if (number == 0|| number == 1) {
+    if (number == 0 || number == 1) {
         primeNumber = 2;
-    }else{
+    }
+    else {
         primeNumber = nearestPrimeNumber(number);
     }
-    //Вывод
-    cout << "Ближайшее простое число находится на расстоянии " << abs(number - primeNumber) << " чисел";
-return 0;
+    //┬√тюф
+    cout << "┴ышцрщ°хх яЁюёЄюх ўшёыю эрїюфшЄё  эр ЁрёёЄю эшш " << abs(number - primeNumber) << " ўшёхы";
+    return 0;
 }
