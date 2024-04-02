@@ -3,9 +3,9 @@
 #include <Windows.h>
 using namespace std;
 
-// Функция проверки на простоту
+// Р¤СѓРЅРєС†РёСЏ РїСЂРѕРІРµСЂРєРё РЅР° РїСЂРѕСЃС‚РѕС‚Сѓ
 int findPrime(int originalNumber) {
-    //проверка простоты
+    //РїСЂРѕРІРµСЂРєР° РїСЂРѕСЃС‚РѕС‚С‹
     for (int i = 2; i <= sqrt(originalNumber); i++) {
         if (originalNumber % i == 0) {
             return 0;
@@ -14,16 +14,15 @@ int findPrime(int originalNumber) {
     return 1;
 }
 
-//Функция для поиска ближайшего простого числа
+//Р¤СѓРЅРєС†РёСЏ РґР»СЏ РїРѕРёСЃРєР° Р±Р»РёР¶Р°Р№С€РµРіРѕ РїСЂРѕСЃС‚РѕРіРѕ С‡РёСЃР»Р°
 int nearestPrimeNumber(int originalNumber) {
-    int leftward = originalNumber;
+    int leftward =originalNumber;
     int right = originalNumber + 1;
-    //Проверка справа, слева или само число простое
+    //РџСЂРѕРІРµСЂРєР° СЃРїСЂР°РІР°, СЃР»РµРІР° РёР»Рё СЃР°РјРѕ С‡РёСЃР»Рѕ РїСЂРѕСЃС‚РѕРµ
     while (true) {
         if (findPrime(leftward)) {
             return leftward;
-        }
-        else if (findPrime(right)) {
+        }else if (findPrime(right)) {
             return right;
         }
         leftward--;
@@ -32,30 +31,29 @@ int nearestPrimeNumber(int originalNumber) {
 }
 
 int main() {
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
-    // Ввод числа
-    cout << "Введите число больше или равное 0: ";
-    int number = 0;
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	// Р’РІРѕРґ С‡РёСЃР»Р°
+	cout << "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ Р±РѕР»СЊС€Рµ РёР»Рё СЂР°РІРЅРѕРµ 0: ";
+	int number = 0;
     cin >> number;
-    //Проверка правильности пользовательского ввода
-    while (cin.fail() || number < 0) {
+    //РџСЂРѕРІРµСЂРєР° РїСЂР°РІРёР»СЊРЅРѕСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРіРѕ РІРІРѕРґР°
+    while(cin.fail() || number < 0){
         system("cls");
-        cout << "Не верно введено значение, введите заново: ";
-        //обнуленние
+        cout << "РќРµ РІРµСЂРЅРѕ РІРІРµРґРµРЅРѕ Р·РЅР°С‡РµРЅРёРµ, РІРІРµРґРёС‚Рµ Р·Р°РЅРѕРІРѕ: ";
+        //РѕР±РЅСѓР»РµРЅРЅРёРµ
         cin.clear();
-        //игнорирует символ
+        //РёРіРЅРѕСЂРёСЂСѓРµС‚ СЃРёРјРІРѕР»
         cin.ignore();
         cin >> number;
     }
     int primeNumber;
-    if (number == 0 || number == 1) {
+    if (number == 0|| number == 1) {
         primeNumber = 2;
-    }
-    else {
+    }else{
         primeNumber = nearestPrimeNumber(number);
     }
-    //Вывод
-    cout << "Ближайшее простое число находится на расстоянии " << abs(number - primeNumber) << " чисел";
-    return 0;
+    //Р’С‹РІРѕРґ
+    cout << "Р‘Р»РёР¶Р°Р№С€РµРµ РїСЂРѕСЃС‚РѕРµ С‡РёСЃР»Рѕ РЅР°С…РѕРґРёС‚СЃСЏ РЅР° СЂР°СЃСЃС‚РѕСЏРЅРёРё " << abs(number - primeNumber) << " С‡РёСЃРµР»";
+	return 0;
 }
