@@ -2,6 +2,18 @@
 #include <Windows.h>
 #include<vector>
 using namespace std;
+void re(vector<int> &number,int n) {
+    //Переворачиваем числа
+    for (int i = 0; i < n; i++) {
+        int x = number[i];
+        int result = 0;
+        while (x != 0) {
+            result = result * 10 + (x % 10);
+            x = x / 10;
+        }
+        number[i] = result;
+    }
+}
 int main()
 {
     SetConsoleCP(1251);
@@ -22,18 +34,10 @@ int main()
         }
         number[i] = x;
     }
-    //Переворачиваем числа
-    for (int i = 0; i < n; i++) {
-        int x = number[i];
-        int result = 0;
-        while (x != 0) {
-            result = result * 10 + (x % 10);
-            x = x / 10;
-        }
-        number[i] = result;
-    }
+    re(number, n);
     //Вывод
     for (int i = 0; i < n; i++) {
         cout << number[i] << " ";
     }
 }
+
