@@ -1,4 +1,4 @@
-// Функция проверки на простоту
+/// Функция проверки на простоту
 function findPrime(originalNumber) {
     // Проверка простоты
     for (let i = 2; i <= Math.sqrt(originalNumber); i++) {
@@ -26,12 +26,12 @@ function nearestPrimeNumber(originalNumber) {
 
 // Главная функция
 
-    let number = prompt("Введите число больше 1: ");
+    let number = prompt("Введите число больше 0: ");
     let primeNumber; 
      while(number < 0){
      number = prompt("Не верно введено значение, введите заново : ");
     }
-    if(number===0 || number===1){
+    if(number==0 || number==1){
         primeNumber =2;
     }else{
         primeNumber = nearestPrimeNumber(number);
