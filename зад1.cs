@@ -28,7 +28,7 @@ class MainClass {
         }
     }
 
-    public static void Main(string[] args) {
+    public static void Main() {
         Console.WriteLine("Введите число больше или равное 0: ");
         int number = Convert.ToInt32(Console.ReadLine());
 
