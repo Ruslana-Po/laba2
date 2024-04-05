@@ -23,16 +23,14 @@ int main()
     cin >> n;
     vector<int> number(n);
     cout << "Введите числа: ";
-    //Ввод чисел в масиве
+    //Ввод чисел в вектор
     for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
+        cin >> number[i];
         // Проверка
         if (cin.fail()) {
             cout << "Не верное значение";
             return 0;
         }
-        number[i] = x;
     }
     re(number, n);
     //Вывод
