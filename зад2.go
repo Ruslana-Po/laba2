@@ -31,7 +31,7 @@ for i := 0; i < len(rings) ; i += 2 {
 	}
 	counter := 0
 	//На скольких кольцах стержни одного цвета
-	for i := 0; i < len(rings); i ++ {
+	for i := 0; i < len(sticks); i ++ {
 		if (sticks[i] % 30 == 0) {
 			counter++
 		}
